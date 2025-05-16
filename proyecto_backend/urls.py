@@ -19,23 +19,23 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import DefaultRouter
-from carrito.views import agregar_producto
 from carrito.views import CarritoViewSet
 from productos.views import CategoriaViewSet
 from productos.views import ProductoViewSet
-from carrito.views import CarritoProductoViewSet
+from usuarios.views import UsuarioViewSet
+from facturas.views import FacturaViewSet
 
 router = DefaultRouter()
 router.register('carrito', CarritoViewSet, 'view_carrito')
 router.register('categorias', CategoriaViewSet, 'view_categoria')
 router.register('productos', ProductoViewSet, 'view_producto')
-router.register('carritoproducto', CarritoProductoViewSet, 'view_carrito_producto')
+router.register('usuarios', UsuarioViewSet, 'view_usuario')
+router.register('facturas', FacturaViewSet, 'view_factura')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
-    path('agregar_producto/', agregar_producto, name='agregar_producto'),
 ]
 
 if settings.DEBUG:

@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'livereload',
     'carrito',
     'productos',
+    'usuarios',
+    'facturas',
 ]
 
 MIDDLEWARE = [
